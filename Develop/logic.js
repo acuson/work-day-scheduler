@@ -28,29 +28,36 @@ $("#hour20 .description").val(localStorage.getItem("hour20"));
 $("#hour21 .description").val(localStorage.getItem("hour21"));
 $("#hour22 .description").val(localStorage.getItem("hour22"));
 
+// Potential for loop for refactoring (not working)
+// var hour = $(document.querySelector('.hour'));
+
+// for (let i=0; i < hour.length; i++) {
+//     $(hour[i] .description).val(localStorage.getItem(hour[i]))
+// };
+
 //Changes background color based on if it's past, present, or future
-function timeTracker () {
-
+function timeTracker() {
+        
     var currentTime = moment().hour();
-
-    $('.time-block').each(function () {
-        var blockTime = parseInt($(this).attr('id').split('hour')[1]);
-        console.log( blockTime, currentTime)
-    });
-
-    if (currentTime === blockTime) {
-        $('.description').addClass('present');
-        $('.description').removeClass('past');
-        $('.description').removeClass('future');
-    } else if (currentTime < blockTime) {
-        $('.description').addClass('past');
-        $('.description').removeClass('present');
-        $('.description').removeClass('future');
-    } else {
-        $('.description').addClass('future');
-        $('.description').removeClass('past');
-        $('.description').removeClass('present');
+        $(".time-block").each(function () {
+            var timeSlot = parseInt($(this).attr("id").split("hour")[1]);
+            console.log( timeSlot, currentTime)
+            
+            if (timeSlot < currentTime) {
+                $(this).addClass("past");
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+            }
+            else if (timeSlot === currentTime) {
+                $(this).addClass("present");
+                $(this).removeClass("future");
+                $(this).removeClass("past");
+            }
+            else {
+                $(this).addClass("future");
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+            }
+        })
     }
-}
-
-timeTracker ();
+    hourTracker();
