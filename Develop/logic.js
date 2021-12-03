@@ -39,25 +39,25 @@ $("#hour22 .description").val(localStorage.getItem("hour22"));
 function timeTracker() {
         
     var currentTime = moment().hour();
-        $(".time-block").each(function () {
-            var timeSlot = parseInt($(this).attr("id").split("hour")[1]);
+        $('.time-block').each(function () {
+            var timeSlot = parseInt($(this).attr('id').split('hour')[1]);
             console.log( timeSlot, currentTime)
             
             if (timeSlot < currentTime) {
-                $(this).addClass("past");
-                $(this).removeClass("future");
-                $(this).removeClass("present");
+                $(this).addClass('past');
+                $(this).removeClass('future');
+                $(this).removeClass('present');
             }
             else if (timeSlot === currentTime) {
-                $(this).addClass("present");
-                $(this).removeClass("future");
-                $(this).removeClass("past");
+                $(this).addClass('present');
+                $(this).removeClass('future');
+                $(this).removeClass('past');
             }
             else {
-                $(this).addClass("future");
-                $(this).removeClass("past");
-                $(this).removeClass("present");
+                $(this).addClass('future');
+                $(this).removeClass('past');
+                $(this).removeClass('present');
             }
         })
     }
-    hourTracker();
+    timeTracker();
