@@ -28,11 +28,12 @@ $("#hour20 .description").val(localStorage.getItem("hour20"));
 $("#hour21 .description").val(localStorage.getItem("hour21"));
 $("#hour22 .description").val(localStorage.getItem("hour22"));
 
-// Potential for loop for refactoring (not working)
+// Potential for loop for refactoring
 // var hour = $(document.querySelector('.hour'));
 
-// for (let i=0; i < hour.length; i++) {
-//     $(hour[i] .description).val(localStorage.getItem(hour[i]))
+// for (let i=7; i < hour.length; i++) {
+    
+// `$(hour${i} .description).val(localStorage.getItem(hour${i}))`
 // };
 
 //Changes background color based on if it's past, present, or future
